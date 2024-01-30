@@ -13,10 +13,10 @@ def game():
     print("Welcome to the Higher Lower Game!")
     score = 0
 
-    while True:
-        player_a = random.choice(data)
-        player_b = random.choice(data)
+    player_a = random.choice(data)
+    player_b = random.choice(data)
 
+    while True:
         while player_a == player_b:
             player_b = random.choice(data)
 
@@ -27,6 +27,8 @@ def game():
            (player_a['follower_count'] < player_b['follower_count'] and user_choice == 'B'):
             score += 1
             print(f"You're right! Current score: {score}")
+            player_a = player_b
+            player_b = random.choice(data)
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
             break
